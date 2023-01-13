@@ -17,3 +17,6 @@ waardoor de prestaties van de website verbeterd worden.
 Echter, dit patroon is niet geschikt als de verzoeken afhankelijk zijn van elkaar,
 zoals bij transacties waarbij de volgorde van verwerking belangrijk is. In deze situaties,
 is een ander patroon zoals "Leader-Follower" pattern of "Master-Worker" pattern meer geschikt.
+
+
+test
