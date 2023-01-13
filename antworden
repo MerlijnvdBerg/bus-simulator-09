@@ -1,0 +1,19 @@
+1.3
+Een voorbeeld van een Point-to-Point patroon zou een e-mailsysteem zijn.
+In dit systeem wordt een bericht van een enkele afzender verzonden naar een enkele ontvanger.
+De afleveringsgarantie is hoog, omdat het bericht specifiek is gericht aan de ontvanger en de ontvanger de enige is die het bericht ontvangt.
+
+1.4
+Queues kunnen gebruikt worden om loadbalancing te realiseren door middel van het "Queue-based Load Leveling" patroon.
+Dit patroon maakt gebruik van een wachtrij waarop verzoeken binnenkomen.
+De verzoeken worden vervolgens verwerkt door verschillende servers die achter de wachtrij staan.
+Zo wordt de belasting over meerdere servers verdeeld en de mogelijkheid van een bottleneck verminderd.
+
+Dit patroon kan helpen bij het oplossen van problemen met een hoge belasting op een enkele server,
+zoals een website die veel verkeer krijgt.
+Door de verzoeken via een wachtrij te verdelen wordt de belasting verdeeld over meerdere servers,
+waardoor de prestaties van de website verbeterd worden.
+
+Echter, dit patroon is niet geschikt als de verzoeken afhankelijk zijn van elkaar,
+zoals bij transacties waarbij de volgorde van verwerking belangrijk is. In deze situaties,
+is een ander patroon zoals "Leader-Follower" pattern of "Master-Worker" pattern meer geschikt.
