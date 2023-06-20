@@ -1,0 +1,20 @@
+{
+  "sampleData": {
+    "64fa58fb-1ca0-4416-a6e6-4c4a0a52333d": {
+      "payload": "sample_data/bericht.xml"
+    },
+    "fd6b2d5b-d8d6-4e2b-8f9d-22db2c2f0e61": {
+      "payload": "sample_data/java.dwl"
+    },
+    "4544cdd3-d809-45dd-bf7e-57e63ab3e565": {
+      "vars-rootMessage": "sample_data/message.dwl",
+      "payload": "sample_data/java_1.dwl"
+    },
+    "371f5536-3b8b-4e4c-897e-7a25c2810cd1": {
+      "vars-rootMessage": "sample_data/Message_1.dwl"
+    },
+    "4410dc7f-0762-462f-8460-457e97e8d517": {
+      "vars-rootMessage": "sample_data/Message_2.dwl"
+    }
+  }
+}

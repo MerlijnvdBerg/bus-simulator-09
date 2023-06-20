@@ -1,0 +1,169 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<types:mule xmlns:types="http://www.mulesoft.org/schema/mule/types">
+  <types:catalog>
+    <types:type name="ETA" format="xml">
+      <types:example format="xml" element="ETA" location="examples/eta.xml"/>
+    </types:type>
+    <types:type name="bus" format="xml">
+      <types:example format="xml" element="Bericht" location="examples/bus.xml"/>
+    </types:type>
+    <types:type name="infobord" format="json">
+      <types:shape format="weave" example="examples/infobord.json"><![CDATA[%dw 2.0
+
+type infobord = {|
+  tijd: Number {"typeId": "int"}, 
+  aankomsttijd: Number {"typeId": "int"}, 
+  lijnNaam: String, 
+  busID: String, 
+  bedrijf: String, 
+  eindpunt: String
+|} {"example": "{\\\"tijd\\\":15,\\\"aankomsttijd\\\":32,\\\"lijnNaam\\\":\\\"LIJN1\\\",\\\"busID\\\":\\\"3LIJN1-1\\\",\\\"bedrijf\\\":\\\"ARRIVA\\\",\\\"eindpunt\\\":\\\"A\\\"}"}
+
+]]></types:shape>
+    </types:type>
+    <types:type name="tijd_xml" format="xml">
+      <types:example format="xml" element="Tijd" location="examples/time.xml"/>
+    </types:type>
+    <types:type name="tijd_json" format="json">
+      <types:shape format="weave" example="examples/time.json"><![CDATA[%dw 2.0
+
+type tijd_json = {|
+  uur: Number {"typeId": "int"}, 
+  minuut: Number {"typeId": "int"}, 
+  seconde: Number {"typeId": "int"}
+|} {"example": "{\\\"uur\\\":5,\\\"minuut\\\":20,\\\"seconde\\\":43}"}
+
+]]></types:shape>
+    </types:type>
+    <types:type name="database_string" format="java">
+      <types:shape format="raml"><![CDATA[#%RAML 1.0 DataType
+type: string]]></types:shape>
+    </types:type>
+  </types:catalog>
+  <types:enrichment select="#bf35b9a5-2db3-4baf-a711-a0b8e7a8bd4a">
+    <types:processor-declaration>
+      <types:input-event>
+        <types:message>
+          <types:payload type="infobord"/>
+        </types:message>
+      </types:input-event>
+    </types:processor-declaration>
+  </types:enrichment>
+  <types:enrichment select="#4432a04e-1e55-422e-ae2d-04356d9e602e">
+    <types:processor-declaration>
+      <types:output-event>
+        <types:message>
+          <types:payload type="bus"/>
+        </types:message>
+      </types:output-event>
+    </types:processor-declaration>
+  </types:enrichment>
+  <types:enrichment select="#e0598181-a567-4939-9549-9aca2ce1eb81">
+    <types:processor-declaration>
+      <types:input-event>
+        <types:message>
+          <types:payload type="infobord"/>
+        </types:message>
+      </types:input-event>
+    </types:processor-declaration>
+  </types:enrichment>
+  <types:enrichment select="#3301b8b3-38bd-490c-851e-59b9640513b8">
+    <types:processor-declaration>
+      <types:input-event>
+        <types:message>
+          <types:payload type="infobord"/>
+        </types:message>
+      </types:input-event>
+    </types:processor-declaration>
+  </types:enrichment>
+  <types:enrichment select="#4e7e524b-8b6f-4a38-a148-a2feadce522f">
+    <types:processor-declaration>
+      <types:input-event>
+        <types:message>
+          <types:payload type="ETA"/>
+        </types:message>
+      </types:input-event>
+    </types:processor-declaration>
+  </types:enrichment>
+  <types:enrichment select="#0db929aa-98e1-4d72-9c74-62f1ed6d2107">
+    <types:processor-declaration>
+      <types:output-event>
+        <types:message>
+          <types:payload type="bus"/>
+        </types:message>
+      </types:output-event>
+    </types:processor-declaration>
+  </types:enrichment>
+  <types:enrichment select="#72b6daf5-46d5-42ba-acd6-ab9cf1a6f588">
+    <types:processor-declaration>
+      <types:output-event>
+        <types:message>
+          <types:payload type="bus"/>
+        </types:message>
+      </types:output-event>
+    </types:processor-declaration>
+  </types:enrichment>
+  <types:enrichment select="#53ccdd70-5f82-42ff-9fd4-ee533d35815e">
+    <types:processor-declaration>
+      <types:output-event>
+        <types:message>
+          <types:payload type="tijd_xml"/>
+        </types:message>
+      </types:output-event>
+    </types:processor-declaration>
+  </types:enrichment>
+  <types:enrichment select="#8919bf38-17d3-4e26-9467-c471f0681a33">
+    <types:processor-declaration>
+      <types:output-event>
+        <types:message>
+          <types:payload type="bus"/>
+        </types:message>
+      </types:output-event>
+    </types:processor-declaration>
+  </types:enrichment>
+  <types:enrichment select="#e1e4347e-69f8-4728-8a6d-c540b8b08f35">
+    <types:processor-declaration>
+      <types:input-event>
+        <types:message>
+          <types:payload type="infobord"/>
+        </types:message>
+      </types:input-event>
+    </types:processor-declaration>
+  </types:enrichment>
+  <types:enrichment select="#c10950c5-5182-445c-9041-4dd1a8e18ad1">
+    <types:processor-declaration>
+      <types:output-event>
+        <types:message>
+          <types:payload type="bus"/>
+        </types:message>
+      </types:output-event>
+    </types:processor-declaration>
+  </types:enrichment>
+  <types:enrichment select="#4ea4c33e-2e97-4619-bd1e-307880ac244c">
+    <types:processor-declaration>
+      <types:input-event>
+        <types:message>
+          <types:payload type="infobord"/>
+        </types:message>
+      </types:input-event>
+    </types:processor-declaration>
+  </types:enrichment>
+  <types:enrichment select="#a9307ed6-24d9-4d89-bf30-0911e194b1a1">
+    <types:processor-declaration>
+      <types:output-event>
+        <types:message>
+          <types:payload type="database_string"/>
+        </types:message>
+      </types:output-event>
+    </types:processor-declaration>
+  </types:enrichment>
+  <types:enrichment select="#4544cdd3-d809-45dd-bf7e-57e63ab3e565">
+    <types:processor-declaration>
+      <types:output-event>
+        <types:message>
+          <types:payload type="database_string"/>
+        </types:message>
+      </types:output-event>
+    </types:processor-declaration>
+  </types:enrichment>
+</types:mule>
